@@ -11,7 +11,7 @@ const SearchBar = (props) => {
         id="input"
         type="text"
         placeholder="Search for a pokemon"
-        className={`border-2 border-slate-100 rounded-lg px-8 py-1 text-center focus:outline-none focus:shadow-md focus:border-slate-300 md:w-full`}
+        className={`border-2 border-slate-100 rounded-lg pl-8 py-1 focus:outline-none focus:shadow-md focus:border-slate-300 w-full md:w-full`}
       />
     </label>
   );
