@@ -1,8 +1,13 @@
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import FetchAllPokemons from "../FetchAllPokemons/FetchAllPokemons";
 const Main = () => {
   const [pokemons, setPokemons] = useState([]);
-  useEffect(() => FetchAllPokemons({ updatePokemons: setPokemons }), []);
+  const curPage = useSelector((state) => state.pageInfo.curPage);
+  useEffect(
+    () => FetchAllPokemons({ updatePokemons: setPokemons, curPage: curPage }),
+    [curPage]
+  );
 
   return (
     <main className="grid grid-cols-2 min-[600px]:grid-cols-3 min-[920px]:grid-cols-4 xl:grid-cols-5">
@@ -15,7 +20,7 @@ const Main = () => {
             >
               <img
                 src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
-                  index + 1
+                  index + 1 + (curPage - 1) * 20
                 }.png`}
                 alt="Corresponding pokemon"
                 className="w-full"

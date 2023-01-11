@@ -1,17 +1,22 @@
-import { useState } from "react";
 import Button from "../PageChange/Button";
 
+import { useDispatch } from "react-redux";
+import { curPageActions } from "../Redux/curPage";
+import { useSelector } from "react-redux";
+
 const PageChange = () => {
-  const [curPage, setCurPage] = useState(1);
-  const minPage = 1;
-  const maxPage = 58;
-  const arr = Array.from({ length: 5 }, (_, i) => i - 2);
+  const dispatch = useDispatch();
+  const curPage = useSelector((state) => state.pageInfo.curPage);
+  const minPage = useSelector((state) => state.pageInfo.minPage);
+  const maxPage = useSelector((state) => state.pageInfo.maxPage);
+
   const arrowLeftPageChangeHandler = () => {
-    curPage !== minPage && setCurPage(curPage - 1);
+    dispatch(curPageActions.leftArrowClick());
   };
   const arrowRightPageChangeHandler = () => {
-    curPage !== maxPage && setCurPage(curPage + 1);
+    dispatch(curPageActions.rightArrowClick());
   };
+  const arr = Array.from({ length: 5 }, (_, i) => i - 2);
 
   return (
     <footer className="flex flex-row justify-center">
@@ -24,27 +29,21 @@ const PageChange = () => {
       {curPage > minPage + 2 && curPage < maxPage - 2 && (
         <>
           {arr.map((el, index) => (
-            <Button curPage={curPage} setCurPage={setCurPage} key={index}>
-              {curPage + el}
-            </Button>
+            <Button key={index}>{curPage + el}</Button>
           ))}
         </>
       )}
       {curPage <= minPage + 2 && (
         <>
           {arr.map((el, index) => (
-            <Button curPage={curPage} setCurPage={setCurPage} key={index}>
-              {index + 1}
-            </Button>
+            <Button key={index}>{index + 1}</Button>
           ))}
         </>
       )}
       {curPage >= maxPage - 2 && (
         <>
           {arr.map((el, index) => (
-            <Button curPage={curPage} setCurPage={setCurPage} key={index}>
-              {maxPage + (index - 4)}
-            </Button>
+            <Button key={index}>{maxPage + (index - 4)}</Button>
           ))}
         </>
       )}
