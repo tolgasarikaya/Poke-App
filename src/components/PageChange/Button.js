@@ -13,8 +13,8 @@ const Button = (props) => {
     <button
       onClick={() => changePageHandler(Number(props.children))}
       className={`${
-        curPage === Number(props.children) ? "bg-slate-300/50 " : ""
-      }m-1 text-gray-800 hover:bg-slate-200/50 rounded-full py-2 my-5 ${
+        curPage === Number(props.children) ? "bg-slate-500/50 " : ""
+      }m-1 text-gray-800 hover:bg-slate-300/50 rounded-full py-2 my-5 ${
         Number(props.children) >= 10 ? "px-3" : "px-4"
       }`}
     >

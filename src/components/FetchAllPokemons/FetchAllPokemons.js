@@ -1,5 +1,3 @@
-import { useSelector } from "react-redux";
-
 const FetchAllPokemons = (props) => {
   const getPokemons = async function () {
     let callForPokemons = await fetch(

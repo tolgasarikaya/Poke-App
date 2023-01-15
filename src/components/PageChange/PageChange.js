@@ -17,6 +17,7 @@ const PageChange = () => {
     dispatch(curPageActions.rightArrowClick());
   };
   const arr = Array.from({ length: 5 }, (_, i) => i - 2);
+  console.log(curPage);
 
   return (
     <footer className="flex flex-row justify-center">
