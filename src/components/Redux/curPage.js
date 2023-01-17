@@ -1,6 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialPageState = { curPage: 1, maxPage: 46, minPage: 1 };
+const initialPageState = {
+  curPage: 1,
+  numberOfPokemons: 905,
+  maxPage: 46,
+  minPage: 1,
+};
 
 const curPageSlice = createSlice({
   name: "currentPage",
@@ -16,6 +21,10 @@ const curPageSlice = createSlice({
     leftArrowClick(state) {
       state.curPage =
         state.curPage > state.minPage ? state.curPage - 1 : state.curPage;
+    },
+    maxPageChange(state, action) {
+      state.numberOfPokemons = action.payload;
+      state.maxPage = Math.ceil(state.numberOfPokemons / 20);
     },
   },
 });
