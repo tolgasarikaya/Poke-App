@@ -2,12 +2,14 @@ import { IoIosSearch } from "react-icons/io";
 
 import { useDispatch } from "react-redux";
 import { inputNameActions } from "../Redux/inputName";
+import { curPageActions } from "../Redux/curPage";
 
 const SearchBar = (props) => {
   const dispatch = useDispatch();
 
   const inputPokemonHandler = (e) => {
     dispatch(inputNameActions.inputName(e));
+    dispatch(curPageActions.buttonClick(1));
   };
   return (
     <label htmlFor="input" className={`relative ${props.className}`}>

@@ -1,4 +1,4 @@
-export const getPokemons = async function () {
+/* export const getPokemons = async function () {
   let pokemons = {};
   const callForAllPokemons = await fetch(
     `https://pokeapi.co/api/v2/pokemon?offset=0&limit=905`
@@ -40,5 +40,15 @@ export const getPokemons = async function () {
     };
   }
 
+  return pokemons;
+};
+ */
+
+//Code above is used to create the gist provided bellow.
+export const getPokemons = async function () {
+  const callForAllPokemons = await fetch(
+    "https://gist.githubusercontent.com/tolgasarikaya/c37a4b683d16e8a3bf7ea10b92221038/raw/1c84e952b4b272174fae09d2f029b4ab5103c685/pokemon-db.json"
+  );
+  const pokemons = await callForAllPokemons.json();
   return pokemons;
 };
