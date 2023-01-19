@@ -7,7 +7,7 @@ const PokemonModal = (props) => {
       onClick={() => props.display(false)}
     >
       <div
-        className="bg-white p-6 rounded-xl w-4/5 relative h-5/6 min-[500px]:w-1/2 flex flex-col justify-center"
+        className="bg-white p-6 rounded-xl w-4/5 relative h-5/6 min-[700px]:w-1/2 flex flex-col justify-center"
         onClick={(e) => e.stopPropagation()}
       >
         <AiOutlineClose
@@ -18,7 +18,7 @@ const PokemonModal = (props) => {
         <img
           src={props.poke.img}
           alt="corresponding pokemon"
-          className="w-2/3 mx-auto min-[370px]:w-[10rem]"
+          className="w-2/3 mx-auto min-[370px]:w-[10rem] md:w-1/2"
         />
         <h1 className="font-bold text-xl text-gray-600 my-4 text-center">
           {props.poke.name.charAt(0).toUpperCase() + props.poke.name.slice(1)}
