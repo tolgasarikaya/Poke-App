@@ -10,7 +10,15 @@
   });
   //////////////////////////images////////////////////777
   for (let i = 1; i <= 905; i++) {
-    const pokemonUrls = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${i}.png`;
+    let a;
+    if (i <= 9) {
+      a = "00" + String(i);
+    } else if (i > 9 && i <= 99) {
+      a = "0" + String(i);
+    } else {
+      a = i;
+    }
+    const pokemonUrls = `https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/${a}.png`;
     pokemons[i - 1].img = pokemonUrls;
   }
   //////////////////////////////types and stats/////////////7
@@ -43,11 +51,10 @@
   return pokemons;
 };
  */
-
 //Code above is used to create the gist provided bellow.
 export const getPokemons = async function () {
   const callForAllPokemons = await fetch(
-    "https://gist.githubusercontent.com/tolgasarikaya/c37a4b683d16e8a3bf7ea10b92221038/raw/1c84e952b4b272174fae09d2f029b4ab5103c685/pokemon-db.json"
+    "https://gist.githubusercontent.com/tolgasarikaya/c37a4b683d16e8a3bf7ea10b92221038/raw/711ae2402cc2b16c1924021b10fc541ddcdf87d7/pokemon-db.json"
   );
   const pokemons = await callForAllPokemons.json();
   return pokemons;

@@ -12,8 +12,8 @@ const TypeDropdown = () => {
   useEffect(() => {
     const closeDropdown = (e) => {
       if (
-        e.path[0] !== btnRef.current &&
-        e.path[0].parentNode !== btnRef.current
+        e.target !== btnRef.current &&
+        e.target.parentNode !== btnRef.current
       ) {
         setShowDropdown(false);
       }

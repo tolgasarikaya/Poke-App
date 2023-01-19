@@ -28,8 +28,8 @@ const PageChange = () => {
       </button>
       {arr
         .filter((el) => el <= curPage + 2 && el >= curPage - 2)
-        .map((el) => (
-          <Button>{el}</Button>
+        .map((el, i) => (
+          <Button key={i}>{el}</Button>
         ))}
       <button
         className="text-2xl text-gray-700 ml-2"

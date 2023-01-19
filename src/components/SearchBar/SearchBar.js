@@ -13,10 +13,7 @@ const SearchBar = (props) => {
   };
   return (
     <label htmlFor="input" className={`relative ${props.className}`}>
-      <IoIosSearch
-        size={20}
-        className="absolute top-2 left-2 mt-0.5 text-gray-600"
-      />
+      <IoIosSearch size={20} className="absolute top-2 left-2 text-gray-600" />
       <input
         id="input"
         type="text"
