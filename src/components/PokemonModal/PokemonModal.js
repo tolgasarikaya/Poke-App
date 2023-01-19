@@ -18,7 +18,7 @@ const PokemonModal = (props) => {
         <img
           src={props.poke.img}
           alt="corresponding pokemon"
-          className="w-2/3 mx-auto min-[370px]:w-[10rem] md:w-1/2"
+          className="w-2/3 mx-auto min-[370px]:w-[10rem] "
         />
         <h1 className="font-bold text-xl text-gray-600 my-4 text-center">
           {props.poke.name.charAt(0).toUpperCase() + props.poke.name.slice(1)}
